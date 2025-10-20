@@ -35,6 +35,16 @@ interface NightlifeItem {
   image: string;
 }
 
+interface AttractionItem {
+  name: string;
+  description: string;
+  rating: number;
+  price: number;
+  website: string;
+  mapLink: string;
+  image: string;
+}
+
 const accommodations: AccommodationItem[] = [
   {
     name: 'Архитектор by Provence',
@@ -239,8 +249,119 @@ const nightlife: NightlifeItem[] = [
   }
 ];
 
+const attractions: AttractionItem[] = [
+  {
+    name: 'Парк «Ривьера»',
+    description: 'Знаменитый парк «Ривьера», в переводе с итальянского «прибрежный», был заложен в далеком 1898 году и расположен на правом берегу реки Сочи. Кстати, Сочи как курорт начал развиваться именно с этого места. Скульптурная композиция перед Южным входом — настоящие часы в виде золотой жемчужины, лежащей в раскрытой створке раковины, давно стала визитной карточкой парка «Ривьера». За более чем вековую историю существования в парке собрана уникальная коллекция достопримечательностей. «Ривьера» –парк не только для отдыха, но и для развлечений. Это старейший парк аттракционов Сочи. Здесь Вы можете найти много ресторанов, кафе и даже дельфинарий.',
+    rating: 4.6,
+    price: 0,
+    website: 'https://park-riviera.ru/',
+    mapLink: 'https://yandex.ru/maps/239/sochi/?ll=39.715878%2C43.592055&mode=poi&poi%5Bpoint%5D=39.715872%2C43.591399&poi%5Buri%5D=ymapsbm1%3A%2F%2Forg%3Foid%3D1105456640&z=17',
+    image: 'https://avatars.mds.yandex.net/get-altay/11348025/2a00000191c12285c3a4e50cd2cc9097e5db/XXXL'
+  },
+  {
+    name: 'Тисо-самшитовая роща',
+    description: 'Эту рощу часто называют Хостинской, потому что она расположена недалеко от курортного посёлка Хоста на юго-восточном склоне горы Ахун. Ценность рощи в том, что она сохранилась нетронутой с доледниковых времён и служит естественным заповедником для ягодного тиса, колхидского самшита и ещё почти 70 редчайших пород деревьев и кустарников. Некоторые тисы достигают высоты 12-этажного дома. Самшит интересен своей сверхпрочной древесиной, такой тяжёлой, что тонет в воде, поэтому его называют «железным деревом». Через рощу тянется тропа-лабиринт, возникшая 20 млн лет назад в результате тектонического разлома. Узкие ходы среди обомшелых слоистых скал приводят посетителей к смотровой площадке, откуда открывается панорама Кавказских гор и видно, как пенится река Хоста на дне каньона.',
+    rating: 5.0,
+    price: 300,
+    website: 'https://www.kavkazzapoved.ru/o-nas',
+    mapLink: 'https://yandex.ru/maps/org/tiso_samshitovaya_roshcha/119220728731/?ll=39.873646%2C43.537583&z=14.37',
+    image: 'https://avatars.mds.yandex.net/get-altay/6235017/2a00000185c7b71c2e6f4d7e7d6e57e4dd19/XXXL'
+  },
+  {
+    name: 'Sky Park Сочи',
+    description: 'Skypark находится в уникальной природной локации – Ахштырском ущелье Сочинского национального парка. Здесь вы прогуляетесь по самому длинному в России подвесному пешеходному мосту, который входит в топ-13 самых впечатляющих мостов мира по версии CNN, полетаете на самых высоких в мире качелях, сможете прыгнуть с самой высокой в России банджи-площадки, прокатиться на суперскоростном троллее и посмотреть на мир с высоты птичьего полёта, летая на Zipline. Skypark – парк уникальных впечатлений!',
+    rating: 5.0,
+    price: 2500,
+    website: 'https://skypark.ru/',
+    mapLink: 'https://yandex.ru/maps/org/skaypark/1210593378/?ll=39.997255%2C43.524942&z=16.26',
+    image: 'https://avatars.mds.yandex.net/get-altay/10525029/2a0000018e33b0d0f4b5a6ca24f0d68cbfeb/XXXL'
+  },
+  {
+    name: 'Роза Хутор',
+    description: '«Роза Хутор» — это круглогодичный горнолыжный курорт мирового уровня в Сочи, расположенный в долине реки Мзымта. Он известен своими живописными горными пейзажами, обширной инфраструктурой и разнообразными возможностями для отдыха как зимой, так и летом. Курорт располагает 94-105 км горнолыжных трасс всех уровней сложности, современными канатными дорогами, отелями, ресторанами и магазинами.',
+    rating: 5.0,
+    price: 2500,
+    website: 'https://rosakhutor.ru/?utm_source=google.com&utm_medium=organic&utm_campaign=google.com&utm_referrer=google.com',
+    mapLink: 'https://yandex.ru/maps/org/roza_khutor/210727341098/?ll=40.297544%2C43.671377&z=16.26',
+    image: 'https://tripplanet.ru/wp-content/uploads/europe/russia/rosa-khutor/dostoprimechatelnosti-roza-hutora.jpg'
+  },
+  {
+    name: 'Чайная плантация «Мацестинская Долина»',
+    description: 'В Краснодарском крае несколько мест, где выращивают чай. Одно из них — чайные плантации в Мацестинской долине, которые считаются самыми северными в мире. Мацестинская чайная фабрика работает с 1947 года и сегодня выпускает более 100 наименований чая под разными брендами («Мацеста чай», Turshu`s). Любой желающий может попасть сюда на экскурсию — погулять по чайным полям, продегустировать разные сорта чая, узнать особенности выращивания и заваривания чайных листьев.',
+    rating: 5.0,
+    price: 650,
+    website: 'https://www.matsestatea.ru/excursions/',
+    mapLink: 'https://yandex.ru/maps/org/chaynaya_plantatsiya_matsesty/116815787783/?ll=39.900775%2C43.732805&z=9.96',
+    image: 'https://cdn2.tu-tu.ru/image/pagetree_node_data/1/195739e0c05f4380f2c474504b3e6251/'
+  },
+  {
+    name: 'Олимпийский парк с поющим фонтаном',
+    description: 'Объекты, построенные к Олимпиаде-2014, находятся в Имеретинской низменности в Адлеровском районе Сочи. Сюда приходят, чтобы погулять, покататься на велосипедах и роликах, посмотреть на шоу светомузыкальных фонтанов и сфотографироваться. На территории парка находится «Сочи автодром» и музей автомобилей. В сами олимпийские объекты можно попасть, если купить билет на какое-то событие: спортивный матч, концерт, ледовое шоу и т.д.',
+    rating: 5.0,
+    price: 0,
+    website: 'https://xn----8sbwaafbgebmvqgqj.xn--p1ai/',
+    mapLink: 'https://yandex.ru/maps/org/olimpiyskiy_park/106634527518/?ll=39.954779%2C43.405691&z=16.86',
+    image: 'https://cdn2.tu-tu.ru/image/pagetree_node_data/1/f5375493a4626d9801ffb6159acfd675/'
+  },
+  {
+    name: 'Зимний Театр',
+    description: 'Зимний театр в Сочи — это историческое здание, построенное в 1937 году, в стиле сталинского неоклассицизма, известное как главная театрально-концертная площадка города. Его архитектура включает 88 колонн, портик, украшенный скульптурами, и террасу с видом на море. Зал рассчитан на 950–970 мест и декорирован огромной хрустальной люстрой. Театр славится своей акустикой и является площадкой для концертов, спектаклей и крупных фестивалей, таких как «Кинотавр» и Crescendo.',
+    rating: 5.0,
+    price: 0,
+    website: 'https://www.skfo.online/',
+    mapLink: 'https://yandex.ru/maps/org/zimniy_teatr/114613194733/?ll=39.730548%2C43.572279&z=15.89',
+    image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRfmokEHEYS3BSC2JP9cAGhLYI2nRbQRhKc4Q&s'
+  },
+  {
+    name: 'Океанариум Sochi Discovery World Aquarium',
+    description: 'Поход в океанариум — отличный способ восхититься многообразием подводного мира. Здесь можно увидеть 400 видов морских и пресноводных обитателей — от черепах до акул. Они живут в 30 аквариумах, заполненных 5 млн литров воды. Яркие впечатления оставляет прогулка по подводному тоннелю — по нему идешь, окруженный толщей воды. Рыбок в открытых бассейнах можно кормить купленным в автомате кормом. Для посетителей проводятся шоу с плавающими за стеклом русалками.',
+    rating: 4.8,
+    price: 1400,
+    website: 'https://www.sochiaquarium.ru/',
+    mapLink: 'https://yandex.ru/maps/org/sochi_discovery_world_aquarium/175975357111/?ll=39.897155%2C43.471914&z=16.26',
+    image: 'https://adler-laguna.ru/assets/images/fotogalereya/gorod/a4b7a489db90e5aa037e38215c26c6501.1.jpg'
+  },
+  {
+    name: 'Агурские водопады',
+    description: 'Первую экскурсионную тропу проложили в Сочи в 1911 году, и это была тропа к Агурским водопадам. Больших водопадов всего три: Нижний, Средний и Верхний. Первый считается самым живописным. Он состоит из двух каскадов высотой 18 м и 12 м. Оба потока низвергаются в небольшое озеро, где приятно освежиться в летнюю жару. Здесь же в разгар сезона готовят шашлыки и приглашают продегустировать местное вино. Отсюда вверх по скалам тянутся лесенки, которые приводят сначала к Среднему (высота 23 м), а потом и Верхнему водопаду (21 м). Ещё выше находятся совершенно отвесные Орлиные скалы. К ним, по легенде, был прикован древнегреческий Прометей. Ему установлен памятник на одной из вершин: герой изображен уже разорвавшим цепи. Если перейти реку Агуру вброд, можно сделать привал на широкой Поляне слётов. А можно двинуться дальше вверх, на гору Ахун, чтобы посмотреть на Кавказские горы и полюбоваться видами Сочи.',
+    rating: 5.0,
+    price: 200,
+    website: 'https://npsochi.ru/',
+    mapLink: 'https://yandex.ru/maps/org/agurskiye_vodopady/158828174543/?ll=39.823475%2C43.556614&z=14.91',
+    image: 'https://cdn2.tu-tu.ru/image/pagetree_node_data/4/880eb219a9dddee08b010a07d5daaeba/'
+  },
+  {
+    name: 'ТРЦ «МореМолл»',
+    description: 'ТРЦ «Моремолл» — это торгово-развлекательный центр суперрегионального масштаба в Сочи, расположенный на пересечении улиц Донской и Новой Зари. Он включает в себя большое количество магазинов, супермаркет, фуд-корт, кинотеатр, кафе, ресторан, а также предлагает различные услуги (банк, аптека, салон красоты) и имеет большую наземную парковку на 2500 мест.',
+    rating: 5.0,
+    price: 0,
+    website: 'https://www.moremall.ru/',
+    mapLink: 'https://yandex.ru/maps/org/moremoll/1306461179/?ll=39.732181%2C43.605961&z=13.89',
+    image: 'https://dynamic-media-cdn.tripadvisor.com/media/photo-o/09/e9/39/07/caption.jpg?w=1200&h=1200&s=1'
+  },
+  {
+    name: 'Дольмены Красной Поляны',
+    description: 'Дольмены — загадочные древние сооружения, построенные из многотонных каменных плит. По мнению ученых, дольмены служили для захоронений или проведения культовых обрядов. Дольмены встречаются по всему миру, в том числе в России. Краснополянские сооружения построены в III-II тысячелетии до нашей эры. Шесть дольменов находятся в поселке Красная Поляна, на территории «Сочинского национального парка». К ним надо добираться по лесу, поэтому лучше надеть удобную обувь. Вход на территорию нацпарка платный.',
+    rating: 5.0,
+    price: 250,
+    website: 'https://npsochi.ru/',
+    mapLink: 'https://yandex.ru/maps/org/sochinskiy_natsionalny_park/1144104082/?ll=39.745206%2C43.569093&z=16.26',
+    image: 'https://cdn2.tu-tu.ru/image/pagetree_node_data/1/c3ac425cef2a87c2b1600c79eb9b1831/'
+  },
+  {
+    name: 'Автодром Сочи',
+    description: 'Трасса автодрома известна тем, что раньше здесь ежегодно проводился российский этап «Формулы-1». Сейчас здесь проходит российская серия кольцевых гонок, марафоны и полумарафоны, чемпионаты по ходьбе, велогонки, соревнования на спортивных колясках и другие события. На автодром водят экскурсии. Отдельно можно сходить в музей автомобилей Ника Памули, где представлены редкие гоночные и ретроавтомобили, форма и награды гонщиков. Те, кто давно мечтал прокатиться на спорткаре, могут взять мастер-класс по вождению или просто насладиться быстрой ездой на пассажирском сиденье. Кроме того, для посетителей доступен картинг.',
+    rating: 5.0,
+    price: 2000,
+    website: 'https://siriusautodrom.ru/',
+    mapLink: 'https://yandex.ru/maps/org/sirius_avtodrom/1456082796/?ll=39.968832%2C43.409913&z=16.26',
+    image: 'https://cdn2.tu-tu.ru/image/pagetree_node_data/1/9afde2f90917dc5d4ef15ac631a8bd99/'
+  }
+];
+
 const Index = () => {
-  const [bookingDialog, setBookingDialog] = useState<{ open: boolean; type: 'accommodation' | 'restaurant' | null; data: string }>({
+  const [bookingDialog, setBookingDialog] = useState<{ open: boolean; type: 'accommodation' | 'restaurant' | 'attraction' | null; data: string }>({
     open: false,
     type: null,
     data: ''
@@ -259,7 +380,7 @@ const Index = () => {
         </header>
 
         <Tabs defaultValue="accommodation" className="w-full">
-          <TabsList className="grid w-full grid-cols-3 mb-8 bg-white/80 backdrop-blur-sm p-1 h-auto">
+          <TabsList className="grid w-full grid-cols-4 mb-8 bg-white/80 backdrop-blur-sm p-1 h-auto">
             <TabsTrigger value="accommodation" className="flex items-center gap-2 py-3 text-sm md:text-base">
               <Icon name="Home" size={20} />
               <span className="hidden sm:inline">Проживание</span>
@@ -271,6 +392,10 @@ const Index = () => {
             <TabsTrigger value="nightlife" className="flex items-center gap-2 py-3 text-sm md:text-base">
               <Icon name="Music" size={20} />
               <span className="hidden sm:inline">Ночная жизнь</span>
+            </TabsTrigger>
+            <TabsTrigger value="attractions" className="flex items-center gap-2 py-3 text-sm md:text-base">
+              <Icon name="MapPin" size={20} />
+              <span className="hidden sm:inline">Что посетить</span>
             </TabsTrigger>
           </TabsList>
 
@@ -409,6 +534,52 @@ const Index = () => {
               ))}
             </div>
           </TabsContent>
+
+          <TabsContent value="attractions" className="space-y-6 animate-fade-in">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+              {attractions.map((item, index) => (
+                <Card key={index} className="overflow-hidden hover:shadow-lg transition-shadow duration-300 bg-white/90 backdrop-blur-sm">
+                  <div className="relative h-64">
+                    <img
+                      src={item.image}
+                      alt={item.name}
+                      className="w-full h-full object-cover"
+                    />
+                    <div className="absolute bottom-2 left-2 bg-white/95 backdrop-blur-sm px-3 py-1.5 rounded-full flex items-center gap-1 shadow-md">
+                      <Icon name="Star" size={16} className="text-yellow-500 fill-yellow-500" />
+                      <span className="font-semibold text-sm">{item.rating}</span>
+                    </div>
+                    <div className="absolute top-2 right-2 bg-primary/95 backdrop-blur-sm text-primary-foreground px-3 py-1.5 rounded-full font-semibold text-sm shadow-md">
+                      {item.price === 0 ? 'Бесплатно' : `от ${item.price} ₽`}
+                    </div>
+                  </div>
+                  <CardContent className="p-5">
+                    <h3 className="font-heading font-semibold text-lg mb-2 text-foreground">{item.name}</h3>
+                    <p className="text-sm text-muted-foreground mb-4 line-clamp-3">{item.description}</p>
+                    <div className="flex gap-2">
+                      <Button
+                        variant="outline"
+                        size="sm"
+                        className="flex-1"
+                        onClick={() => window.open(item.mapLink, '_blank')}
+                      >
+                        <Icon name="MapPin" size={16} className="mr-1" />
+                        На карте
+                      </Button>
+                      <Button
+                        size="sm"
+                        className="flex-1"
+                        onClick={() => setBookingDialog({ open: true, type: 'attraction', data: item.website })}
+                      >
+                        <Icon name="Heart" size={16} className="mr-1" />
+                        Хочу туда!
+                      </Button>
+                    </div>
+                  </CardContent>
+                </Card>
+              ))}
+            </div>
+          </TabsContent>
         </Tabs>
       </div>
 
@@ -416,22 +587,24 @@ const Index = () => {
         <DialogContent className="sm:max-w-md">
           <DialogHeader>
             <DialogTitle className="font-heading">
-              {bookingDialog.type === 'accommodation' ? 'Бронирование проживания' : 'Бронирование столика'}
+              {bookingDialog.type === 'accommodation' ? 'Бронирование проживания' : bookingDialog.type === 'restaurant' ? 'Бронирование столика' : 'Информация о месте'}
             </DialogTitle>
             <DialogDescription>
               {bookingDialog.type === 'accommodation' 
                 ? 'Перейдите по ссылке для бронирования' 
-                : 'Позвоните по номеру для бронирования'}
+                : bookingDialog.type === 'restaurant'
+                ? 'Позвоните по номеру для бронирования'
+                : 'Перейдите на сайт для подробной информации'}
             </DialogDescription>
           </DialogHeader>
           <div className="flex items-center space-x-2 bg-secondary/50 p-4 rounded-lg">
             <div className="flex-1 text-sm break-all">
-              {bookingDialog.type === 'accommodation' ? (
-                <a href={bookingDialog.data} target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">
+              {bookingDialog.type === 'restaurant' ? (
+                <a href={`tel:${bookingDialog.data.replace(/[^+\d]/g, '')}`} className="text-primary hover:underline font-semibold text-lg">
                   {bookingDialog.data}
                 </a>
               ) : (
-                <a href={`tel:${bookingDialog.data.replace(/[^+\d]/g, '')}`} className="text-primary hover:underline font-semibold text-lg">
+                <a href={bookingDialog.data} target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">
                   {bookingDialog.data}
                 </a>
               )}
@@ -439,17 +612,17 @@ const Index = () => {
           </div>
           <Button
             onClick={() => {
-              if (bookingDialog.type === 'accommodation') {
-                window.open(bookingDialog.data, '_blank');
-              } else {
+              if (bookingDialog.type === 'restaurant') {
                 window.location.href = `tel:${bookingDialog.data.replace(/[^+\d]/g, '')}`;
+              } else {
+                window.open(bookingDialog.data, '_blank');
               }
               setBookingDialog({ ...bookingDialog, open: false });
             }}
             className="w-full"
           >
-            <Icon name={bookingDialog.type === 'accommodation' ? 'ExternalLink' : 'Phone'} size={16} className="mr-2" />
-            {bookingDialog.type === 'accommodation' ? 'Перейти на сайт' : 'Позвонить'}
+            <Icon name={bookingDialog.type === 'restaurant' ? 'Phone' : 'ExternalLink'} size={16} className="mr-2" />
+            {bookingDialog.type === 'restaurant' ? 'Позвонить' : 'Перейти на сайт'}
           </Button>
         </DialogContent>
       </Dialog>
