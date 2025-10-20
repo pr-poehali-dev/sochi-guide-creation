@@ -9,8 +9,7 @@ interface DayPlanItem {
   title: string;
   description: string;
   icon: string;
-  location: string;
-  mapLink: string;
+  quote: string;
 }
 
 interface RouteItem {
@@ -35,40 +34,35 @@ const threeDayPlan: { [key: string]: DayPlanItem[] } = {
       title: 'Завтрак в центре',
       description: 'Начните день с завтрака в одном из кафе на Навагинской улице',
       icon: 'Coffee',
-      location: 'Навагинская улица',
-      mapLink: 'https://yandex.ru/maps/-/CLVLBAK2'
+      quote: 'Кофе с видом на море — лучшее начало дня в Сочи'
     },
     {
       time: '10:30',
       title: 'Парк Ривьера',
       description: 'Прогулка по старейшему парку Сочи, дельфинарий, аттракционы',
       icon: 'Trees',
-      location: 'Парк Ривьера',
-      mapLink: 'https://yandex.ru/maps/239/sochi/?ll=39.715878%2C43.592055&mode=poi&poi%5Bpoint%5D=39.715872%2C43.591399&poi%5Buri%5D=ymapsbm1%3A%2F%2Forg%3Foid%3D1105456640&z=17'
+      quote: 'Здесь история курорта оживает среди вековых деревьев'
     },
     {
       time: '14:00',
       title: 'Обед у моря',
       description: 'Мидии и морепродукты в ресторане "Мидийное место"',
       icon: 'UtensilsCrossed',
-      location: 'Мидийное место',
-      mapLink: 'https://yandex.ru/maps/239/sochi/chain/midijnoe_mesto/150461476458/'
+      quote: 'Свежие черноморские мидии — визитная карточка местной кухни'
     },
     {
       time: '16:00',
       title: 'Пляж и набережная',
       description: 'Отдых на пляже, прогулка по набережной до Морского вокзала',
       icon: 'Waves',
-      location: 'Центральная набережная',
-      mapLink: 'https://yandex.ru/maps/-/CLVH6Hoj'
+      quote: 'Шум прибоя и крик чаек — главный саундтрек сочинского отпуска'
     },
     {
       time: '20:00',
       title: 'Ужин с видом',
       description: 'Ресторан D.O.M в порту с панорамным видом на море',
       icon: 'Utensils',
-      location: 'D.O.M',
-      mapLink: 'https://yandex.ru/maps/-/CLVH6Hoj'
+      quote: 'Закат над портом превращает ужин в незабываемое шоу'
     }
   ],
   day2: [
@@ -77,40 +71,35 @@ const threeDayPlan: { [key: string]: DayPlanItem[] } = {
       title: 'Ранний выезд в горы',
       description: 'Поездка на Роза Хутор или Красную Поляну',
       icon: 'Mountain',
-      location: 'Роза Хутор',
-      mapLink: 'https://yandex.ru/maps/org/roza_khutor/210727341098/'
+      quote: 'Горы зовут тех, чьё сердце стремится к вершинам'
     },
     {
       time: '10:00',
       title: 'Канатная дорога',
       description: 'Подъем на высоту 2320м, панорамные виды на горы',
       icon: 'Cable',
-      location: 'Канатная дорога Роза Хутор',
-      mapLink: 'https://yandex.ru/maps/org/roza_khutor/210727341098/'
+      quote: 'На высоте 2320 метров открывается не только вид на Кавказ, но и душа'
     },
     {
       time: '13:00',
       title: 'Обед в горах',
       description: 'Грузинская кухня в ресторане на высоте',
       icon: 'UtensilsCrossed',
-      location: 'Ресторан Роза Хутор',
-      mapLink: 'https://rosakhutor.ru/'
+      quote: 'Хинкали с видом на вершины — вкус Кавказа'
     },
     {
       time: '15:00',
       title: 'Прогулка по курорту',
       description: 'Исследуйте инфраструктуру курорта, магазины, смотровые площадки',
       icon: 'Camera',
-      location: 'Роза Хутор',
-      mapLink: 'https://rosakhutor.ru/'
+      quote: 'Каждый уголок Розы Хутор создан для Instagram'
     },
     {
       time: '18:00',
       title: 'Возвращение в Сочи',
       description: 'Поездка обратно в город (40-50 минут)',
       icon: 'Car',
-      location: 'Дорога в Сочи',
-      mapLink: 'https://yandex.ru/maps/'
+      quote: 'Серпантин в горы — это роад-трип с захватывающими видами'
     }
   ],
   day3: [
@@ -119,40 +108,35 @@ const threeDayPlan: { [key: string]: DayPlanItem[] } = {
       title: 'Skypark',
       description: 'Парк приключений: подвесной мост, зиплайн, качели',
       icon: 'Zap',
-      location: 'Skypark Сочи',
-      mapLink: 'https://yandex.ru/maps/org/skaypark/1210593378/'
+      quote: 'Адреналин на высоте 207 метров — это незабываемо!'
     },
     {
       time: '13:00',
       title: 'Обед в Skypark',
       description: 'Кафе на территории парка с видом на ущелье',
       icon: 'Coffee',
-      location: 'Skypark',
-      mapLink: 'https://skypark.ru/'
+      quote: 'Еда с видом на Ахштырское ущелье вкуснее в два раза'
     },
     {
       time: '15:00',
       title: 'Тисо-самшитовая роща',
       description: 'Прогулка по реликтовому лесу возрастом 30 млн лет',
       icon: 'TreePine',
-      location: 'Хостинская роща',
-      mapLink: 'https://yandex.ru/maps/org/tiso_samshitovaya_roshcha/119220728731/'
+      quote: 'Прогулка по лесу, который помнит динозавров — машина времени'
     },
     {
       time: '18:00',
       title: 'Чайные плантации',
       description: 'Экскурсия по чайной фабрике, дегустация краснодарского чая',
       icon: 'Leaf',
-      location: 'Мацестинская долина',
-      mapLink: 'https://yandex.ru/maps/'
+      quote: 'Самые северные чайные плантации в мире — здесь!'
     },
     {
       time: '21:00',
       title: 'Ночная жизнь Сочи',
       description: 'Коктейли и живая музыка в баре "Закулисье"',
       icon: 'Music',
-      location: 'Закулисье',
-      mapLink: 'https://yandex.ru/maps/-/CLVLZALv'
+      quote: 'Сочи не спит — город зажигает с заката!'
     }
   ]
 };
@@ -302,8 +286,8 @@ export default function Guide() {
 
         <div className="mb-12 rounded-3xl overflow-hidden shadow-2xl">
           <img 
-            src="https://cdn.poehali.dev/projects/5f21fc14-32b8-4315-81a1-36ef6151fc35/files/bb7b8306-9b89-47ac-a5d3-633a07924396.jpg"
-            alt="Путеводитель по Сочи"
+            src="https://cdn.poehali.dev/files/8d6748b9-728c-4225-ad9f-c71bb838729d.png"
+            alt="Сочи - город-мечта"
             className="w-full h-[400px] object-cover"
           />
         </div>
@@ -367,16 +351,8 @@ export default function Guide() {
                           <h3 className="text-xl font-bold">{item.title}</h3>
                         </div>
                         <p className="text-muted-foreground mb-3">{item.description}</p>
-                        <div className="flex items-center gap-2 text-sm">
-                          <Icon name="MapPin" size={16} className="text-accent" />
-                          <a 
-                            href={item.mapLink}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="text-accent hover:underline"
-                          >
-                            {item.location}
-                          </a>
+                        <div className="bg-accent/10 border-l-4 border-accent p-3 rounded-r-lg">
+                          <p className="text-sm italic text-muted-foreground">“{item.quote}”</p>
                         </div>
                       </div>
                     </div>
