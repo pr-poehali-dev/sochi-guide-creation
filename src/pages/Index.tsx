@@ -257,7 +257,7 @@ const attractions: AttractionItem[] = [
     price: 0,
     website: 'https://park-riviera.ru/',
     mapLink: 'https://yandex.ru/maps/239/sochi/?ll=39.715878%2C43.592055&mode=poi&poi%5Bpoint%5D=39.715872%2C43.591399&poi%5Buri%5D=ymapsbm1%3A%2F%2Forg%3Foid%3D1105456640&z=17',
-    image: 'https://avatars.mds.yandex.net/get-altay/11348025/2a00000191c12285c3a4e50cd2cc9097e5db/XXXL'
+    image: 'https://cdn.poehali.dev/files/8eae2dcd-fa08-4372-ad2a-a538ee064b66.png'
   },
   {
     name: 'Тисо-самшитовая роща',
@@ -266,7 +266,7 @@ const attractions: AttractionItem[] = [
     price: 300,
     website: 'https://www.kavkazzapoved.ru/o-nas',
     mapLink: 'https://yandex.ru/maps/org/tiso_samshitovaya_roshcha/119220728731/?ll=39.873646%2C43.537583&z=14.37',
-    image: 'https://avatars.mds.yandex.net/get-altay/6235017/2a00000185c7b71c2e6f4d7e7d6e57e4dd19/XXXL'
+    image: 'https://cdn.poehali.dev/files/13389312-3783-4d98-87c4-f95c891c6ad8.png'
   },
   {
     name: 'Sky Park Сочи',
@@ -275,7 +275,7 @@ const attractions: AttractionItem[] = [
     price: 2500,
     website: 'https://skypark.ru/',
     mapLink: 'https://yandex.ru/maps/org/skaypark/1210593378/?ll=39.997255%2C43.524942&z=16.26',
-    image: 'https://avatars.mds.yandex.net/get-altay/10525029/2a0000018e33b0d0f4b5a6ca24f0d68cbfeb/XXXL'
+    image: 'https://cdn.poehali.dev/files/190fc5af-ac2c-43dc-aa74-a702f2194cea.png'
   },
   {
     name: 'Роза Хутор',
