@@ -154,7 +154,7 @@ const routes: RouteItem[] = [
       'Сочинский художественный музей'
     ],
     difficulty: 'easy',
-    image: 'https://cdn.poehali.dev/projects/5f21fc14-32b8-4315-81a1-36ef6151fc35/files/bb7b8306-9b89-47ac-a5d3-633a07924396.jpg'
+    image: 'https://cdn.poehali.dev/files/ecdd2573-6d8b-409b-a643-3e2bdda9bc68.png'
   },
   {
     title: 'Горная Красная Поляна',
@@ -196,7 +196,7 @@ const routes: RouteItem[] = [
       'Сочи Парк (русский Диснейленд)'
     ],
     difficulty: 'easy',
-    image: 'https://cdn.poehali.dev/files/8eae2dcd-fa08-4372-ad2a-a538ee064b66.png'
+    image: 'https://cdn.poehali.dev/files/7c7c091b-afd1-486b-bd3f-1f6380f5e04d.png'
   }
 ];
 
@@ -288,7 +288,7 @@ export default function Guide() {
           <img 
             src="https://cdn.poehali.dev/files/8d6748b9-728c-4225-ad9f-c71bb838729d.png"
             alt="Сочи - город-мечта"
-            className="w-full h-[400px] object-cover"
+            className="w-full h-auto object-contain"
           />
         </div>
 
