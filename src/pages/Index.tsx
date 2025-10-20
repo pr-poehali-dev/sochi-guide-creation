@@ -45,6 +45,14 @@ interface AttractionItem {
   image: string;
 }
 
+interface CasinoItem {
+  name: string;
+  rating: number;
+  website: string;
+  image: string;
+  reviews: { author: string; text: string }[];
+}
+
 const accommodations: AccommodationItem[] = [
   {
     name: 'Архитектор by Provence',
@@ -360,6 +368,48 @@ const attractions: AttractionItem[] = [
   }
 ];
 
+const casinos: CasinoItem[] = [
+  {
+    name: 'Казино Сочи',
+    rating: 4.6,
+    website: 'https://casinosochi.ru',
+    image: 'https://avatars.mds.yandex.net/get-altay/5493698/2a0000017ffebdeaca09b3f01070129c7812/XXL_height',
+    reviews: [
+      { author: 'Александр М.', text: 'Отличное казино! Прекрасная атмосфера, вежливый персонал. Игровые залы чистые и современные.' },
+      { author: 'Елена К.', text: 'Были с мужем, очень понравилось. Большой выбор игровых автоматов и столов. Рекомендую!' },
+      { author: 'Дмитрий П.', text: 'Хорошее место для развлечения. Качественное обслуживание, приятная музыка.' },
+      { author: 'Ирина С.', text: 'Красивый интерьер, удобное расположение. Есть бар с хорошими коктейлями.' },
+      { author: 'Сергей В.', text: 'Посещаю регулярно. Честная игра, быстрые выплаты. Профессиональные крупье.' }
+    ]
+  },
+  {
+    name: 'Бонус Slots',
+    rating: 4.5,
+    website: 'https://bonushall.ru',
+    image: 'https://avatars.mds.yandex.net/get-altay/6527792/2a000001905fad24ab11d69539c2808d5a59/XXL_height',
+    reviews: [
+      { author: 'Марина Л.', text: 'Отличное заведение! Много новых автоматов, приятная атмосфера.' },
+      { author: 'Виктор Г.', text: 'Хороший игровой зал. Персонал дружелюбный, всегда помогут новичкам.' },
+      { author: 'Ольга Н.', text: 'Уютное место, чистота и порядок. Есть лояльная программа для постоянных клиентов.' },
+      { author: 'Андрей Ф.', text: 'Нравится разнообразие игр. Удобное расположение в центре города.' },
+      { author: 'Татьяна Б.', text: 'Современное оборудование, комфортная обстановка. Рекомендую!' }
+    ]
+  },
+  {
+    name: 'Boomerang',
+    rating: 5.0,
+    website: 'https://casinoboomerang.ru',
+    image: 'https://falshpol.su/upload/information_system_19/4/7/8/item_478/information_items_property_639.jpg',
+    reviews: [
+      { author: 'Максим Р.', text: 'Лучшее казино в Сочи! Роскошный интерьер, высокий уровень сервиса.' },
+      { author: 'Наталья З.', text: 'Восхитительное место! Профессиональные дилеры, отличная кухня в ресторане.' },
+      { author: 'Игорь Ш.', text: 'Премиум-класс во всем. Большие ставки, достойные выигрыши. Незабываемые впечатления!' },
+      { author: 'Анна Д.', text: 'Очень элегантная обстановка. Чувствуешь себя как в Монте-Карло.' },
+      { author: 'Павел К.', text: 'Высший класс! Вип-зал просто шикарен. Обязательно вернусь!' }
+    ]
+  }
+];
+
 const Index = () => {
   const [bookingDialog, setBookingDialog] = useState<{ open: boolean; type: 'accommodation' | 'restaurant' | 'attraction' | null; data: string }>({
     open: false,
@@ -384,30 +434,210 @@ const Index = () => {
           <h1 className="text-5xl md:text-6xl font-heading font-bold text-primary mb-4">
             Путеводитель по Сочи
           </h1>
-          <p className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto">
+          <p className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto mb-6">
             Откройте для себя лучшие места для отдыха, гастрономии и развлечений
           </p>
+          <Button 
+            size="lg"
+            onClick={() => window.location.href = '/guide'}
+            className="px-8"
+          >
+            <Icon name="Map" size={20} className="mr-2" />
+            Открыть подробный путеводитель
+          </Button>
         </header>
 
-        <Tabs defaultValue="accommodation" className="w-full">
-          <TabsList className="grid w-full grid-cols-4 mb-8 bg-white/80 backdrop-blur-sm p-1 h-auto">
-            <TabsTrigger value="accommodation" className="flex items-center gap-2 py-3 text-sm md:text-base">
-              <Icon name="Home" size={20} />
-              <span className="hidden sm:inline">Проживание</span>
+        <Tabs defaultValue="about" className="w-full">
+          <TabsList className="grid w-full grid-cols-6 mb-8 bg-white/80 backdrop-blur-sm p-1 h-auto">
+            <TabsTrigger value="about" className="flex items-center gap-2 py-3 text-xs md:text-base">
+              <Icon name="Info" size={18} />
+              <span className="hidden sm:inline">О Сочи</span>
             </TabsTrigger>
-            <TabsTrigger value="restaurants" className="flex items-center gap-2 py-3 text-sm md:text-base">
-              <Icon name="UtensilsCrossed" size={20} />
-              <span className="hidden sm:inline">Рестораны</span>
-            </TabsTrigger>
-            <TabsTrigger value="nightlife" className="flex items-center gap-2 py-3 text-sm md:text-base">
-              <Icon name="Music" size={20} />
-              <span className="hidden sm:inline">Ночная жизнь</span>
-            </TabsTrigger>
-            <TabsTrigger value="attractions" className="flex items-center gap-2 py-3 text-sm md:text-base">
-              <Icon name="MapPin" size={20} />
+            <TabsTrigger value="attractions" className="flex items-center gap-2 py-3 text-xs md:text-base">
+              <Icon name="MapPin" size={18} />
               <span className="hidden sm:inline">Что посетить</span>
             </TabsTrigger>
+            <TabsTrigger value="accommodation" className="flex items-center gap-2 py-3 text-xs md:text-base">
+              <Icon name="Home" size={18} />
+              <span className="hidden sm:inline">Проживание</span>
+            </TabsTrigger>
+            <TabsTrigger value="restaurants" className="flex items-center gap-2 py-3 text-xs md:text-base">
+              <Icon name="UtensilsCrossed" size={18} />
+              <span className="hidden sm:inline">Рестораны</span>
+            </TabsTrigger>
+            <TabsTrigger value="nightlife" className="flex items-center gap-2 py-3 text-xs md:text-base">
+              <Icon name="Music" size={18} />
+              <span className="hidden sm:inline">Ночная жизнь</span>
+            </TabsTrigger>
+            <TabsTrigger value="gambling" className="flex items-center gap-2 py-3 text-xs md:text-base">
+              <Icon name="Dices" size={18} />
+              <span className="hidden sm:inline">Gambling</span>
+            </TabsTrigger>
           </TabsList>
+
+          <TabsContent value="about" className="space-y-8 animate-fade-in">
+            <div className="max-w-4xl mx-auto space-y-8">
+              <Card className="p-8 bg-white/90 backdrop-blur-sm">
+                <div className="prose prose-lg max-w-none">
+                  <p className="text-muted-foreground leading-relaxed">
+                    Всего полтора века назад на месте цветущих субтропических парков и
+                    оживленных набережных были непроходимые болота и малярийные джунгли.
+                    Современная история Сочи началась в 1864 году с крошечного военного форта
+                    Александрия. Место было гиблым, но стратегически важным для Российской
+                    империи.
+                  </p>
+                  <p className="text-muted-foreground leading-relaxed">
+                    Переломным стал советский проект по созданию «Всесоюзной здравницы». Тысячи
+                    комсомольцев осушали болота, высаживали кипарисы, пальмы и магнолии,
+                    строили первые санатории. Это была грандиозная битва человека с природой,
+                    которую человек с триумфом выиграл.
+                  </p>
+                  <p className="text-muted-foreground leading-relaxed">
+                    В 2014 году Сочи вновь удивил мир, блестяще проведя первые в России
+                    Олимпийские зимние игры. Сегодня это уникальный город, где за несколько минут
+                    можно из тропического парка добраться до заснеженных склонов Красной
+                    Поляны.
+                  </p>
+                  <p className="text-muted-foreground leading-relaxed">
+                    Но Сочи — это не только природа и история. Его гастрономическая и ночная жизнь
+                    столь же разнообразна: от уютных чайных в горах и аутентичных ресторанов с
+                    местной кухней до модных баров и кофеен у моря. Чтобы вы ничего не упустили,
+                    мы и создали этот путеводитель — ваш проводник в самом вкусном и интересном
+                    Сочи.
+                  </p>
+                  <h3 className="text-2xl font-bold mt-8 mb-4">Самый главный вопрос при планировании отпуска: а какой район Сочи ваш?</h3>
+                  <p className="text-muted-foreground">Выбирайте по интересам!</p>
+                </div>
+              </Card>
+
+              <Card className="overflow-hidden bg-white/90 backdrop-blur-sm">
+                <div className="grid md:grid-cols-2 gap-0">
+                  <div className="p-8">
+                    <h3 className="text-2xl font-bold mb-4">ЦЕНТРАЛЬНЫЙ СОЧИ</h3>
+                    <p className="text-sm text-primary font-semibold mb-3">Подойдет для: любителей атмосферы, истории и бурной жизни.</p>
+                    <p className="text-muted-foreground mb-4">
+                      <strong>Почему вам сюда?</strong> Это сердце города-курорта! Здесь вы найдете знаменутую
+                      набережную, Морской вокзал, парадную сталинскую архитектуру, шумные улицы с
+                      магазинами и самые разнообразные рестораны и бары. Идеально для неспешных
+                      прогулок, фотосессий и погружения в курортную суету.
+                    </p>
+                    <p className="text-muted-foreground">
+                      <strong>Что делать?</strong> Гулять по Платановой аллее, загадывать желание у «Якоря и пушки»,
+                      пить кофе с видом на море, изучать афишу Зимнего театра.
+                    </p>
+                  </div>
+                  <div className="h-64 md:h-auto">
+                    <img
+                      src="https://s9.travelask.ru/system/images/files/001/455/919/wysiwyg_jpg/MG_6418-1320x880.jpg?1612937246"
+                      alt="Центральный Сочи"
+                      className="w-full h-full object-cover"
+                    />
+                  </div>
+                </div>
+              </Card>
+
+              <Card className="overflow-hidden bg-white/90 backdrop-blur-sm">
+                <div className="grid md:grid-cols-2 gap-0">
+                  <div className="h-64 md:h-auto order-2 md:order-1">
+                    <img
+                      src="https://adler.cosmosgroup.ru/files/hotel_service_blocks/214_1722510910.webp"
+                      alt="Адлер"
+                      className="w-full h-full object-cover"
+                    />
+                  </div>
+                  <div className="p-8 order-1 md:order-2">
+                    <h3 className="text-2xl font-bold mb-4">АДЛЕР</h3>
+                    <p className="text-sm text-primary font-semibold mb-3">Подойдет для: семей с детьми, фанатов современных технологий и спорта.</p>
+                    <p className="text-muted-foreground mb-4">
+                      <strong>Почему вам сюда?</strong> Это просторный, современный и плоский район, созданный к
+                      Олимпиаде. Здесь сосредоточены главные чудеса: Олимпийский парк с гоночной
+                      трассой, грандиозный «Сочи-парк», океанариум и дельфинарий. Пляжи здесь в
+                      основном песчаные и галечные, с пологим заходом в воду.
+                    </p>
+                    <p className="text-muted-foreground">
+                      <strong>Что делать?</strong> Восхищаться поющими фонтанами, кататься на американских горках,
+                      ловить момент для фото на фоне Олимпийских объектов, наблюдать за птицами в
+                      орнитологическом парке.
+                    </p>
+                  </div>
+                </div>
+              </Card>
+
+              <Card className="overflow-hidden bg-white/90 backdrop-blur-sm">
+                <div className="grid md:grid-cols-2 gap-0">
+                  <div className="p-8">
+                    <h3 className="text-2xl font-bold mb-4">КРАСНАЯ ПОЛЯНА</h3>
+                    <p className="text-sm text-primary font-semibold mb-3">Подойдет для: экстремалов, любителей гор и романтиков</p>
+                    <p className="text-muted-foreground mb-4">
+                      <strong>Почему вам сюда?</strong> Если море для вас — лишь приятное дополнение, а главная цель
+                      — горные вершины, вам точно в Красную Поляну. Это мировой уровень
+                      горнолыжных курортов зимой и рай для хайкинга, рафтинга и канатных дорог
+                      летом.
+                    </p>
+                    <p className="text-muted-foreground">
+                      <strong>Что делать?</strong> Подниматься на высоту 2320 м по канатке, кататься на лыжах (зимой)
+                      или горном велосипеде (летом), пить глинтвейн с видом на заснеженные пики,
+                      гулять по мощеным улочкам «Роза Хутора».
+                    </p>
+                  </div>
+                  <div className="h-64 md:h-auto">
+                    <img
+                      src="https://img.geliophoto.com/krasnayapolyana/00_krasnayapolyana.jpg"
+                      alt="Красная Поляна"
+                      className="w-full h-full object-cover"
+                    />
+                  </div>
+                </div>
+              </Card>
+
+              <Card className="overflow-hidden bg-white/90 backdrop-blur-sm">
+                <div className="grid md:grid-cols-2 gap-0">
+                  <div className="h-64 md:h-auto order-2 md:order-1">
+                    <img
+                      src="https://guide-tours.ru/wp-content/uploads/2022/04/hosta-krasnodarskij-kraj.jpg"
+                      alt="Хоста"
+                      className="w-full h-full object-cover"
+                    />
+                  </div>
+                  <div className="p-8 order-1 md:order-2">
+                    <h3 className="text-2xl font-bold mb-4">ХОСТА</h3>
+                    <p className="text-sm text-primary font-semibold mb-3">Подойдет для: ценителей спокойствия, здоровья и древней природы.</p>
+                    <p className="text-muted-foreground mb-4">
+                      <strong>Почему вам сюда?</strong> Это самый спокойный и уединенный вариант. Район известен
+                      своими лечебными сероводородными источниками (Мацеста) и реликтовыми
+                      лесами. Здесь тише, зелено и не так многолюдно, как в центре.
+                    </p>
+                    <p className="text-muted-foreground">
+                      <strong>Что делать?</strong> Оздоравливаться в санаториях, совершать паломничество в Тисосамшитовую рощу — древний лес, помнящий динозавров, наслаждаться тишиной и
+                      чистым воздухом.
+                    </p>
+                  </div>
+                </div>
+              </Card>
+
+              <Card className="p-8 bg-gradient-to-br from-primary/10 to-accent/10 border-primary/20">
+                <h3 className="text-2xl font-bold mb-6 text-center">Но когда ехать?</h3>
+                <div className="space-y-4">
+                  <div className="flex items-start gap-3">
+                    <Icon name="Check" size={20} className="text-primary mt-1 flex-shrink-0" />
+                    <p className="text-muted-foreground"><strong>Хотите всё и сразу (море + горы + экскурсии):</strong> выбирайте сентябрь.</p>
+                  </div>
+                  <div className="flex items-start gap-3">
+                    <Icon name="Check" size={20} className="text-primary mt-1 flex-shrink-0" />
+                    <p className="text-muted-foreground"><strong>Вам нужно только море и солнце:</strong> готовьтесь к жаре и толпам в июле-августе.</p>
+                  </div>
+                  <div className="flex items-start gap-3">
+                    <Icon name="Check" size={20} className="text-primary mt-1 flex-shrink-0" />
+                    <p className="text-muted-foreground"><strong>Только горные лыжи:</strong> планируйте поездку на январь-февраль.</p>
+                  </div>
+                  <div className="flex items-start gap-3">
+                    <Icon name="Check" size={20} className="text-primary mt-1 flex-shrink-0" />
+                    <p className="text-muted-foreground"><strong>Планируете экономный и комфортный отдых:</strong> ваш выбор — май или конец сентября.</p>
+                  </div>
+                </div>
+              </Card>
+            </div>
+          </TabsContent>
 
           <TabsContent value="accommodation" className="space-y-6 animate-fade-in">
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -555,13 +785,18 @@ const Index = () => {
           </TabsContent>
 
           <TabsContent value="attractions" className="space-y-6 animate-fade-in">
-            <div className="mb-8 rounded-2xl overflow-hidden shadow-xl">
+            <a 
+              href="https://www.google.com/maps/d/edit?hl=ru&mid=1j-bXLSCsrRqCUmQLORDbjzve8_VTjDc&ll=43.56336628612893%2C39.930932200366215&z=11" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="block mb-8 rounded-2xl overflow-hidden shadow-xl hover:shadow-2xl transition-shadow cursor-pointer"
+            >
               <img 
-                src="https://cdn.poehali.dev/projects/5f21fc14-32b8-4315-81a1-36ef6151fc35/files/b23613b8-fd29-4dd4-a78f-9e2c95302f01.jpg"
+                src="https://cdn.poehali.dev/files/c78d0b86-f655-47e0-98ef-18473e25f834.png"
                 alt="Карта достопримечательностей Сочи"
-                className="w-full h-auto object-cover"
+                className="w-full h-auto object-cover hover:scale-105 transition-transform duration-300"
               />
-            </div>
+            </a>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
               {attractions.map((item, index) => (
                 <Card key={index} className="overflow-hidden hover:shadow-lg transition-shadow duration-300 bg-white/90 backdrop-blur-sm">
@@ -608,6 +843,53 @@ const Index = () => {
                 </Card>
               ))}
             </div>
+          </TabsContent>
+
+          <TabsContent value="gambling" className="space-y-8 animate-fade-in">
+            <div className="space-y-8">
+              {casinos.map((casino, index) => (
+                <Card key={index} className="overflow-hidden bg-white/90 backdrop-blur-sm hover:shadow-xl transition-shadow">
+                  <div className="grid md:grid-cols-2 gap-0">
+                    <div className="relative h-64 md:h-full">
+                      <img
+                        src={casino.image}
+                        alt={casino.name}
+                        className="w-full h-full object-cover"
+                      />
+                      <div className="absolute bottom-4 left-4 bg-black/80 backdrop-blur-sm px-4 py-2 rounded-full flex items-center gap-2">
+                        <Icon name="Star" size={18} className="text-yellow-500 fill-yellow-500" />
+                        <span className="font-bold text-white text-lg">{casino.rating}</span>
+                      </div>
+                    </div>
+                    <div className="p-6 flex flex-col">
+                      <h3 className="text-2xl font-bold mb-4">{casino.name}</h3>
+                      <div className="flex-1 space-y-3 mb-4 overflow-y-auto max-h-60">
+                        {casino.reviews.map((review, idx) => (
+                          <div key={idx} className="bg-secondary/30 p-3 rounded-lg">
+                            <p className="font-semibold text-sm text-primary mb-1">{review.author}</p>
+                            <p className="text-sm text-muted-foreground">{review.text}</p>
+                          </div>
+                        ))}
+                      </div>
+                      <Button
+                        size="lg"
+                        className="w-full mt-auto"
+                        onClick={() => window.open(casino.website, '_blank')}
+                      >
+                        <Icon name="Dices" size={20} className="mr-2" />
+                        Let's go gambling!
+                      </Button>
+                    </div>
+                  </div>
+                </Card>
+              ))}
+            </div>
+
+            <Card className="p-8 bg-gradient-to-r from-red-500/10 to-yellow-500/10 border-red-500/20">
+              <p className="text-center text-2xl font-bold text-muted-foreground italic">
+                На тачке поехал играть в казино, домой шел пешком 🎰
+              </p>
+            </Card>
           </TabsContent>
         </Tabs>
       </div>
