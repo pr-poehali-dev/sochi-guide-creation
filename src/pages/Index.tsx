@@ -125,7 +125,7 @@ const accommodations: AccommodationItem[] = [
 
 const restaurants: RestaurantItem[] = [
   {
-    name: 'Медийное место',
+    name: 'Мидийное место',
     description: 'Сеть ресторанов на берегу моря с мидиями',
     rating: 5.0,
     averageCheck: '700 - 1000 ₽',
@@ -555,6 +555,13 @@ const Index = () => {
           </TabsContent>
 
           <TabsContent value="attractions" className="space-y-6 animate-fade-in">
+            <div className="mb-8 rounded-2xl overflow-hidden shadow-xl">
+              <img 
+                src="https://cdn.poehali.dev/projects/5f21fc14-32b8-4315-81a1-36ef6151fc35/files/b23613b8-fd29-4dd4-a78f-9e2c95302f01.jpg"
+                alt="Карта достопримечательностей Сочи"
+                className="w-full h-auto object-cover"
+              />
+            </div>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
               {attractions.map((item, index) => (
                 <Card key={index} className="overflow-hidden hover:shadow-lg transition-shadow duration-300 bg-white/90 backdrop-blur-sm">
