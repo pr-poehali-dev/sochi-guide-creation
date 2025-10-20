@@ -366,6 +366,16 @@ const Index = () => {
     type: null,
     data: ''
   });
+  
+  const [detailDialog, setDetailDialog] = useState<{ 
+    open: boolean; 
+    type: 'accommodation' | 'restaurant' | 'nightlife' | 'attraction' | null;
+    item: AccommodationItem | RestaurantItem | NightlifeItem | AttractionItem | null 
+  }>({
+    open: false,
+    type: null,
+    item: null
+  });
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-background via-secondary/20 to-accent/20">
@@ -403,11 +413,14 @@ const Index = () => {
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
               {accommodations.map((item, index) => (
                 <Card key={index} className="overflow-hidden hover:shadow-lg transition-shadow duration-300 bg-white/90 backdrop-blur-sm">
-                  <div className="relative h-64">
+                  <div 
+                    className="relative h-64 cursor-pointer"
+                    onClick={() => setDetailDialog({ open: true, type: 'accommodation', item })}
+                  >
                     <img
                       src={item.image}
                       alt={item.name}
-                      className="w-full h-full object-cover"
+                      className="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
                     />
                     <div className="absolute bottom-2 left-2 bg-white/95 backdrop-blur-sm px-3 py-1.5 rounded-full flex items-center gap-1 shadow-md">
                       <Icon name="Star" size={16} className="text-yellow-500 fill-yellow-500" />
@@ -456,11 +469,14 @@ const Index = () => {
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
               {restaurants.map((item, index) => (
                 <Card key={index} className="overflow-hidden hover:shadow-lg transition-shadow duration-300 bg-white/90 backdrop-blur-sm">
-                  <div className="relative h-64">
+                  <div 
+                    className="relative h-64 cursor-pointer"
+                    onClick={() => setDetailDialog({ open: true, type: 'restaurant', item })}
+                  >
                     <img
                       src={item.image}
                       alt={item.name}
-                      className="w-full h-full object-cover"
+                      className="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
                     />
                     <div className="absolute bottom-2 left-2 bg-white/95 backdrop-blur-sm px-3 py-1.5 rounded-full flex items-center gap-1 shadow-md">
                       <Icon name="Star" size={16} className="text-yellow-500 fill-yellow-500" />
@@ -502,11 +518,14 @@ const Index = () => {
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
               {nightlife.map((item, index) => (
                 <Card key={index} className="overflow-hidden hover:shadow-lg transition-shadow duration-300 bg-white/90 backdrop-blur-sm">
-                  <div className="relative h-64">
+                  <div 
+                    className="relative h-64 cursor-pointer"
+                    onClick={() => setDetailDialog({ open: true, type: 'nightlife', item })}
+                  >
                     <img
                       src={item.image}
                       alt={item.name}
-                      className="w-full h-full object-cover"
+                      className="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
                     />
                     <div className="absolute bottom-2 left-2 bg-white/95 backdrop-blur-sm px-3 py-1.5 rounded-full flex items-center gap-1 shadow-md">
                       <Icon name="Star" size={16} className="text-yellow-500 fill-yellow-500" />
@@ -539,11 +558,14 @@ const Index = () => {
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
               {attractions.map((item, index) => (
                 <Card key={index} className="overflow-hidden hover:shadow-lg transition-shadow duration-300 bg-white/90 backdrop-blur-sm">
-                  <div className="relative h-64">
+                  <div 
+                    className="relative h-64 cursor-pointer"
+                    onClick={() => setDetailDialog({ open: true, type: 'attraction', item })}
+                  >
                     <img
                       src={item.image}
                       alt={item.name}
-                      className="w-full h-full object-cover"
+                      className="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
                     />
                     <div className="absolute bottom-2 left-2 bg-white/95 backdrop-blur-sm px-3 py-1.5 rounded-full flex items-center gap-1 shadow-md">
                       <Icon name="Star" size={16} className="text-yellow-500 fill-yellow-500" />
@@ -624,6 +646,126 @@ const Index = () => {
             <Icon name={bookingDialog.type === 'restaurant' ? 'Phone' : 'ExternalLink'} size={16} className="mr-2" />
             {bookingDialog.type === 'restaurant' ? 'Позвонить' : 'Перейти на сайт'}
           </Button>
+        </DialogContent>
+      </Dialog>
+
+      <Dialog open={detailDialog.open} onOpenChange={(open) => setDetailDialog({ ...detailDialog, open })}>
+        <DialogContent className="sm:max-w-2xl max-h-[90vh] overflow-y-auto">
+          {detailDialog.item && (
+            <>
+              <div className="relative w-full h-80 -mt-6 -mx-6 mb-4">
+                <img
+                  src={(detailDialog.item as any).image}
+                  alt={(detailDialog.item as any).name}
+                  className="w-full h-full object-cover"
+                />
+                <div className="absolute bottom-3 left-3 bg-white/95 backdrop-blur-sm px-4 py-2 rounded-full flex items-center gap-2 shadow-lg">
+                  <Icon name="Star" size={18} className="text-yellow-500 fill-yellow-500" />
+                  <span className="font-semibold text-base">{(detailDialog.item as any).rating}</span>
+                  {detailDialog.type === 'accommodation' && (detailDialog.item as AccommodationItem).stars && (
+                    <div className="flex ml-1">
+                      {Array.from({ length: (detailDialog.item as AccommodationItem).stars! }).map((_, i) => (
+                        <Icon key={i} name="Star" size={16} className="text-yellow-500 fill-yellow-500" />
+                      ))}
+                    </div>
+                  )}
+                </div>
+                <div className="absolute top-3 right-3 bg-primary/95 backdrop-blur-sm text-primary-foreground px-4 py-2 rounded-full font-semibold shadow-lg">
+                  {detailDialog.type === 'accommodation' && (detailDialog.item as AccommodationItem).price}
+                  {detailDialog.type === 'restaurant' && (detailDialog.item as RestaurantItem).averageCheck}
+                  {detailDialog.type === 'nightlife' && (
+                    <span className="flex items-center gap-1">
+                      <Icon name="Clock" size={16} />
+                      до {(detailDialog.item as NightlifeItem).openUntil}
+                    </span>
+                  )}
+                  {detailDialog.type === 'attraction' && (
+                    (detailDialog.item as AttractionItem).price === 0 ? 'Бесплатно' : `от ${(detailDialog.item as AttractionItem).price} ₽`
+                  )}
+                </div>
+              </div>
+              
+              <DialogHeader>
+                <DialogTitle className="font-heading text-2xl">{(detailDialog.item as any).name}</DialogTitle>
+              </DialogHeader>
+              
+              <div className="space-y-4">
+                <p className="text-sm text-foreground leading-relaxed">{(detailDialog.item as any).description}</p>
+                
+                <div className="flex gap-3 pt-2">
+                  <Button
+                    variant="outline"
+                    className="flex-1"
+                    onClick={() => window.open((detailDialog.item as any).mapLink, '_blank')}
+                  >
+                    <Icon name="MapPin" size={18} className="mr-2" />
+                    Открыть на карте
+                  </Button>
+                  
+                  {detailDialog.type === 'accommodation' && (
+                    <Button
+                      className="flex-1"
+                      onClick={() => {
+                        setBookingDialog({ 
+                          open: true, 
+                          type: 'accommodation', 
+                          data: (detailDialog.item as AccommodationItem).website 
+                        });
+                        setDetailDialog({ ...detailDialog, open: false });
+                      }}
+                    >
+                      <Icon name="ExternalLink" size={18} className="mr-2" />
+                      Забронировать
+                    </Button>
+                  )}
+                  
+                  {detailDialog.type === 'restaurant' && (
+                    <Button
+                      className="flex-1"
+                      onClick={() => {
+                        setBookingDialog({ 
+                          open: true, 
+                          type: 'restaurant', 
+                          data: (detailDialog.item as RestaurantItem).phone 
+                        });
+                        setDetailDialog({ ...detailDialog, open: false });
+                      }}
+                    >
+                      <Icon name="Phone" size={18} className="mr-2" />
+                      Забронировать
+                    </Button>
+                  )}
+                  
+                  {detailDialog.type === 'nightlife' && (
+                    <Button
+                      className="flex-1"
+                      onClick={() => window.open((detailDialog.item as NightlifeItem).mapLink, '_blank')}
+                    >
+                      <Icon name="Navigation" size={18} className="mr-2" />
+                      Как добраться
+                    </Button>
+                  )}
+                  
+                  {detailDialog.type === 'attraction' && (
+                    <Button
+                      className="flex-1"
+                      onClick={() => {
+                        setBookingDialog({ 
+                          open: true, 
+                          type: 'attraction', 
+                          data: (detailDialog.item as AttractionItem).website 
+                        });
+                        setDetailDialog({ ...detailDialog, open: false });
+                      }}
+                    >
+                      <Icon name="Heart" size={18} className="mr-2" />
+                      Хочу туда!
+                    </Button>
+                  )}
+                </div>
+              </div>
+            </>
+          )}
         </DialogContent>
       </Dialog>
     </div>
