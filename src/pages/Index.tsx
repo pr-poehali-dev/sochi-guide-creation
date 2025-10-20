@@ -594,7 +594,7 @@ const Index = () => {
                 <div className="grid md:grid-cols-2 gap-0">
                   <div className="h-64 md:h-auto order-2 md:order-1">
                     <img
-                      src="https://guide-tours.ru/wp-content/uploads/2022/04/hosta-krasnodarskij-kraj.jpg"
+                      src="https://cdn.poehali.dev/files/37f9e7df-e7df-4c58-9cb7-8b4dd0db19d3.png"
                       alt="Хоста"
                       className="w-full h-full object-cover"
                     />
